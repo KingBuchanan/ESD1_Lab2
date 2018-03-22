@@ -1,0 +1,57 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity hexDisplayDriver is
+ port (
+      i_hex : in std_logic_vector(3 downto 0);
+      o_sevenSeg : out std_logic_vector(6 downto 0)
+    );
+end hexDisplayDriver;
+	signal BCD0   :STD_Logic_vector(3 downto 0);
+
+Constant Zero: Std_logic_Vector(6 downto 0):="1000000";
+Constant One: Std_logic_Vector(6 downto 0):="1111001";
+Constant Two: Std_logic_Vector(6 downto 0):="0100100";
+Constant Three: Std_logic_Vector(6 downto 0):="0110000";
+Constant Four: Std_logic_Vector(6 downto 0):="0011001";
+Constant Five: Std_logic_Vector(6 downto 0):="0010010";
+Constant Six: Std_logic_Vector(6 downto 0):="0000010";
+Constant Eight: Std_logic_Vector(6 downto 0):="0000000";
+Constant Seven: Std_logic_Vector(6 downto 0):="1111000";
+Constant Nine: Std_logic_Vector(6 downto 0):="0011000";
+Constant  Aa: Std_logic_Vector(6 downto 0):="1001000";
+Constant Bb: Std_logic_Vector(6 downto 0):="0000011";
+Constant Cc: Std_logic_Vector(6 downto 0):="0100011";
+Constant  Dd: Std_logic_Vector(6 downto 0):="0100001";
+Constant Ee: Std_logic_Vector(6 downto 0):="0000110";
+Constant Ff: Std_logic_Vector(6 downto 0):="0001110";
+   -- Change the values of the seven seg display a-f . 
+    Architecture behav of hexDisplayDriver is
+   
+begin
+
+BCD0<=Input_A_S;
+process(BCD0)
+begin
+        Case BCD0 is 
+      when "0000"=>SEVEN_SEG<=Zero;
+      when "0001"=>SEVEN_SEG<=One;
+      when "0010"=>SEVEN_SEG<=Two;
+      when "0011"=>SEVEN_SEG<=Three;
+      when "0100"=>SEVEN_SEG<=Four;
+      when "0101"=>SEVEN_SEG<=Five;
+      when "0110"=>SEVEN_SEG<=Six;
+      when "0111"=>SEVEN_SEG<=Seven;
+      when "1000"=>SEVEN_SEG<=Eight;
+      when "1001"=>SEVEN_SEG<=Nine;
+      when "1010"=>SEVEN_SEG<=Aa;
+      when "1011"=>SEVEN_SEG<=Bb;
+      when "1100"=>SEVEN_SEG<=Cc;
+      when "1101"=>SEVEN_SEG<=Dd;
+      when "1110"=>SEVEN_SEG<=Ee;
+      when "1111"=>SEVEN_SEG<=Ff;
+      when others=>SEVEN_SEG<="1111111";
+      end case;
+	end behav;

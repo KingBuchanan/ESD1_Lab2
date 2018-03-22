@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;nios_software1/example_main.s&apos; to &apos;main.s&apos;" description="Rename resource &apos;example_main.s&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="example_main.s" name="main.s" stamp="1518192943780" updateReferences="true"/>
+</session>
